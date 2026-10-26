@@ -1,6 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import React from "react";
 import { REGISTRATION_SCHEMA } from "./Schemas.js";
+import Input from "../Input/index.jsx";
 
 const initialValues = {
   firstName: "",
@@ -27,6 +28,7 @@ function RegistartionForm() {
       {(FormikProps) => {
         return (
           <Form>
+            <Input />
             <label>
               <span>Name:</span>
               <Field name="firstName">
