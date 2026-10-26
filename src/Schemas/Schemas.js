@@ -38,3 +38,8 @@ export const REGISTRATION_SCHEMA = object({
     .oneOf([ref("password")], "Паролі повинні збігатися")
     .required("Обов'язкове поле"),
 });
+
+export const LOGIN_SCHEMA = object({
+  login: string().required("Введіть логін!"),
+  password: string().required("Введіть пароль!"),
+});
