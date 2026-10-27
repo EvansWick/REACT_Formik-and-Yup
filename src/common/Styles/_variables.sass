@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@400600700&display=swap')
+
+    
+$firstColor: #8d0eae
+$bgColor: #101116
+$bgColor2: #1e202b
+$bgColor3: #151825
+$textColor: white
+$textColor2: #d5d8e7
+
+
+$inputBg: #161924  
+$inputBgFocus: #1b1e2c
+$inputBorder: #2a2e43 
+$inputBorderHover: #434865 
+$inputBorderFocus: $firstColor 
+$inputPlaceholder: #6b708d  
+
+
+$errorColor: #f87171
+$errorBg: rgba(248, 113, 113, 0.08)
+
+$successColor: #34d399 
+$successBg: rgba(52, 211, 153, 0.08) 
+
+$FooterHeight: 7rem
+$HeaderHeight: 5rem
+
+
+
+
+$titleFont: 'Oxanium', sans-serif
+
+// Міксін для стандартних станів кнопки (звичайний, ховер, активний)
+@mixin submitButtonStyle($padding: 12px 24px, $margin: 10px 0 0 0) 
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 100%
+  padding: $padding
+  margin: $margin
+  background-color: $firstColor
+  color: $textColor
+  font-size: 16px
+  font-weight: 600
+  border: none
+  border-radius: 8px
+  cursor: pointer
+  box-shadow: 0 4px 14px rgba(141, 14, 174, 0.3)
+  transition: all 0.2s ease-in-out
+
+  // Стан при наведенні миші (Hover)
+  &:hover 
+    background-color: $firstColor
+    transform: translateY(-1px)
+    box-shadow: 0 6px 18px rgba(141, 14, 174, 0.4)
+  
+
+  // Стан при натисканні (Active)
+  &:active 
+    transform: translateY(0)
+    box-shadow: 0 2px 8px rgba(141, 14, 174, 0.3)
+    
+  &:disabled 
+    background-color: $bgColor3  
+    color: $inputPlaceholder
+    cursor: not-allowed
+    box-shadow: none 
+    transform: none  
+  

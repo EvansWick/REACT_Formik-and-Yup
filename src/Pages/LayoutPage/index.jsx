@@ -4,20 +4,14 @@ import { Outlet, useNavigate } from "react-router-dom";
 import Footer from "../../Components/Footer";
 
 function LayoutPage() {
-  const [isAuth, setIsAuth] = useState(false);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!isAuth) {
-      navigate("/registration");
-    }
-  }, [isAuth, navigate]);
   return (
-    <main>
+    <>
       <Header />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }
 

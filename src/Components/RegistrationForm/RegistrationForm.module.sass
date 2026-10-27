@@ -1,9 +1,31 @@
+@use '../../common/Styles/_variables' as *
+    
 .form
-    width: 400px
+    max-width: 400px
     display: flex
     justify-content: center
-    align-items: center
+    align-items: stretch
     flex-direction: column
+    font-family: $titleFont
+
+    padding: 35px
+    background-color: $bgColor
+    border-radius: 10px
+    font-family: $titleFont
+
 
 .fullNameContainer 
     display: flex
+    gap: 15px
+    width: 100%
+
+.submitBtn
+    @include submitButtonStyle(12px 24px, 0 0 15px 0 )
+
+
+.goToReg
+    color: $textColor
+    a
+        color: $firstColor
+        font-weight: 600
+        text-decoration: none

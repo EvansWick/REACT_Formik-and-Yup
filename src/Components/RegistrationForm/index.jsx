@@ -1,10 +1,10 @@
-import { Field, Form, Formik } from "formik";
-import React, { useEffect } from "react";
+import { Form, Formik } from "formik";
+import { useEffect, useState } from "react";
 import { REGISTRATION_SCHEMA } from "../../Schemas/Schemas.js";
 import Input from "../Input/index.jsx";
 
 import styles from "./RegistrationForm.module.sass";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const initialValues = {
   firstName: "",
@@ -16,22 +16,25 @@ const initialValues = {
   confirmPassword: "",
 };
 
-const classes = {};
-
-function RegistartionForm() {
+function RegistartionForm(props) {
   const timeId = null;
+  const [isSubmiting, setIsSubmiting] = useState(false);
+
   const navigate = useNavigate();
   function handleSubmit(values, FormikBag) {
     console.log("values :>> ", values);
-    // console.log("FormikBag :>> ", FormikBag);
-    timeId = setTimeout(() => navigate("/login"), 5000);
+    setIsSubmiting(true);
+    localStorage.setItem("login", values.nickName);
+    localStorage.setItem("password", values.password);
+    timeId = setTimeout(() => navigate("/login"), 3000);
   }
 
   useEffect(() => {
     return () => {
       clearTimeout(timeId);
+      setIsSubmiting(false);
     };
-  });
+  }, []);
 
   return (
     <Formik
@@ -48,14 +51,12 @@ function RegistartionForm() {
                 name={"firstName"}
                 type={"text"}
                 placeholder={`Ваше ім'я`}
-                classes={classes}
               />
               <Input
                 labelName={"Прізвище"}
                 name={"lastName"}
                 type={"text"}
                 placeholder={`Ваше прізвище`}
-                classes={classes}
               />
             </div>
             <Input
@@ -63,38 +64,43 @@ function RegistartionForm() {
               name={"nickName"}
               type={"text"}
               placeholder={`userName`}
-              classes={classes}
             />
             <Input
               labelName={"Пошта"}
               name={"email"}
               type={"email"}
               placeholder={`example@gmail.com`}
-              classes={classes}
             />
             <Input
               labelName={"Телефон"}
               name={"phone"}
               type={"tel"}
               placeholder={`+380123456789`}
-              classes={classes}
             />
             <Input
               labelName={"Пароль"}
               name={"password"}
               type={"password"}
               placeholder={`Your21Pass@wrd`}
-              classes={classes}
             />
             <Input
               labelName={"Перевірка паролю"}
               name={"confirmPassword"}
               type={"password"}
               placeholder={`Your21Pass@wrd`}
-              classes={classes}
             />
 
-            <button type="submit">Reg</button>
+            <button
+              disabled={isSubmiting}
+              className={styles.submitBtn}
+              type="submit"
+            >
+              Реєстрація
+            </button>
+            {/* Чомусь не хочу ставати по центру */}
+            <p className={styles.goToReg}>
+              Вже маєте аккаунт? <Link to="/login">Увійдіть</Link>
+            </p>
           </Form>
         );
       }}

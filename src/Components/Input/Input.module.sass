@@ -1,0 +1,57 @@
+@use '../../common/Styles/_variables' as *
+
+// --- Стилі компонента Input ---
+.row 
+  display: flex
+  flex-direction: column
+  gap: 6px
+  width: 100%
+
+
+.labelText 
+  font-size: 14px
+  font-weight: 500
+  color: $textColor2
+  margin-left: 2px
+
+
+.inputContainer 
+  position: relative 
+  width: 100%
+  padding-bottom: 20px 
+  margin-bottom: 5px 
+
+.input 
+  width: 100%
+  padding: 12px 16px
+  background-color: $inputBg
+  border: 1px solid $inputBorder
+  border-radius: 8px
+  color: $textColor
+  font-size: 15px
+  outline: none
+  transition: all 0.2s ease-in-out
+
+  &::placeholder 
+    color: $inputPlaceholder
+  
+
+  &:hover 
+    border-color: $inputBorderHover
+  
+
+  &:focus 
+    background-color: $inputBgFocus
+    border-color: $inputBorderFocus
+    box-shadow: 0 0 0 3px rgba(141, 14, 174, 0.2) 
+  
+
+
+
+.error 
+  position: absolute
+  bottom: 2px
+  left: 2px
+  font-size: 12px
+  color: $errorColor
+  line-height: 1
