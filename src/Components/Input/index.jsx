@@ -1,9 +1,9 @@
-import { Field } from "formik";
-import classNames from "classnames";
+import { Field } from 'formik';
+import classNames from 'classnames';
 
-import styles from "./Input.module.sass";
+import styles from './Input.module.sass';
 
-function Input({ labelName, name, classes, ...inputProps }) {
+function Input ({ labelName, name, classes, ...inputProps }) {
   return (
     <label className={styles.row}>
       <span className={styles.labelText}>{labelName}</span>

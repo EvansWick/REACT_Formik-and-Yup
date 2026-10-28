@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import Header from "../../Components/Header";
-import { Outlet, useNavigate } from "react-router-dom";
-import Footer from "../../Components/Footer";
+import React, { useEffect, useState } from 'react';
+import Header from '../../Components/Header';
+import { Outlet, useNavigate } from 'react-router-dom';
+import Footer from '../../Components/Footer';
 
-function LayoutPage() {
+function LayoutPage () {
   return (
     <>
       <Header />

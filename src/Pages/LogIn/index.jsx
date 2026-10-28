@@ -1,30 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import styles from "./LogIn.module.sass";
-import classNames from "classnames/bind";
-import LogInForm from "../../Components/LogInForm";
-import { Link, useNavigate } from "react-router-dom";
+import styles from './LogIn.module.sass';
+import classNames from 'classnames/bind';
+import LogInForm from '../../Components/LogInForm';
+import { Link, useNavigate } from 'react-router-dom';
 
-function LogIn(props) {
+function LogIn (props) {
   const timeId = null;
   const navigate = useNavigate();
   const [isSubmiting, setIsSubmiting] = useState(false);
 
   // Функція після входу в аккаунт
-  const continueLogIn = (values) => {
+  const continueLogIn = values => {
     setIsSubmiting(true);
-    console.log("Entering... Values:", values);
+    console.log('Entering... Values:', values);
 
     if (
-      localStorage.getItem("login") === values.login &&
-      localStorage.getItem("password") === values.password
+      localStorage.getItem('login') === values.login &&
+      localStorage.getItem('password') === values.password
     ) {
-      console.log("Auth changed");
+      console.log('Auth changed');
       props.setIsAuth(true);
-      timeId = setTimeout(() => navigate("/"), 3000);
+      timeId = setTimeout(() => navigate('/'), 3000);
       return;
     }
-    console.log("Невірний логін або пароль");
+    console.log('Невірний логін або пароль');
     setIsSubmiting(false);
   };
 

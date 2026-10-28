@@ -1,4 +1,4 @@
-import { object, string, ref } from "yup";
+import { object, string, ref } from 'yup';
 
 export const REGISTRATION_SCHEMA = object({
   firstName: string()
@@ -22,24 +22,26 @@ export const REGISTRATION_SCHEMA = object({
   phone: string()
     .required(`Обов'язкове поле`)
     .matches(/^\+[0-9]{12}$/, `Номер телефону не дійсний`),
-  email: string().required(`Обов'язкове поле`).email(),
+  email: string()
+    .required(`Обов'язкове поле`)
+    .email(),
   password: string()
-    .min(8, "Пароль має містити мінімум 8 символів")
+    .min(8, 'Пароль має містити мінімум 8 символів')
     .matches(
       /(?=.*[a-zа-яіїєґ])/,
-      "Пароль має містити хоча б 1 маленьку літеру",
+      'Пароль має містити хоча б 1 маленьку літеру'
     )
-    .matches(/(?=.*[A-ZА-ЯІЇЄҐ])/, "Пароль має містити хоча б 1 велику літеру")
-    .matches(/(?=.*\d)/, "Пароль має містити хоча б 1 цифру")
-    .matches(/(?=.*[@$!%*?&])/, "Пароль має містити хоча б 1 спец-символ")
+    .matches(/(?=.*[A-ZА-ЯІЇЄҐ])/, 'Пароль має містити хоча б 1 велику літеру')
+    .matches(/(?=.*\d)/, 'Пароль має містити хоча б 1 цифру')
+    .matches(/(?=.*[@$!%*?&])/, 'Пароль має містити хоча б 1 спец-символ')
     .required("Обов'язкове поле"),
   confirmPassword: string()
     // ref('password') вказує, що значення має дорівнювати полю password
-    .oneOf([ref("password")], "Паролі повинні збігатися")
+    .oneOf([ref('password')], 'Паролі повинні збігатися')
     .required("Обов'язкове поле"),
 });
 
 export const LOGIN_SCHEMA = object({
-  login: string().required("Введіть логін!"),
-  password: string().required("Введіть пароль!"),
+  login: string().required('Введіть логін!'),
+  password: string().required('Введіть пароль!'),
 });

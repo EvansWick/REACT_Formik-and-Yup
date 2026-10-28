@@ -1,22 +1,22 @@
-import { Form, Formik } from "formik";
-import React, { useState } from "react";
-import Input from "../Input";
-import { LOGIN_SCHEMA } from "../../Schemas/Schemas.js";
+import { Form, Formik } from 'formik';
+import React, { useState } from 'react';
+import Input from '../Input';
+import { LOGIN_SCHEMA } from '../../Schemas/Schemas.js';
 
-import styles from "./LogInForm.module.sass";
-import { Link } from "react-router-dom";
+import styles from './LogInForm.module.sass';
+import { Link } from 'react-router-dom';
 
 const initialValues = {
-  login: "",
-  password: "",
+  login: '',
+  password: '',
 };
 
 const classes = {};
 
-function LogInForm(props) {
+function LogInForm (props) {
   const [isSubmiting, setIsSubmiting] = useState(false);
 
-  function submithandle(values, FormikBag) {
+  function submithandle (values, FormikBag) {
     // console.log("Вхідні дані:", values);
     props.continueLogIn(values);
   }
@@ -30,27 +30,27 @@ function LogInForm(props) {
       <Form className={styles.form}>
         <Input
           labelName={`Ім'я користувача`}
-          name="login"
-          placeholder="userName"
+          name='login'
+          placeholder='userName'
           classes={classes}
-          type="text"
+          type='text'
         />
         <Input
           labelName={`Пароль`}
-          name="password"
-          placeholder="password"
+          name='password'
+          placeholder='password'
           classes={classes}
-          type="password"
+          type='password'
         />
         <button
           className={styles.submitBtn}
           disabled={props.isSubmiting}
-          type="submit"
+          type='submit'
         >
           Вхід
         </button>
         <p className={styles.goToReg}>
-          Не маєте аккаунта? <Link to="/registration">Зареєструйтесь</Link>
+          Не маєте аккаунта? <Link to='/registration'>Зареєструйтесь</Link>
         </p>
       </Form>
     </Formik>
