@@ -31,7 +31,7 @@ $HeaderHeight: 5rem
 
 $titleFont: 'Oxanium', sans-serif
 
-// Міксін для стандартних станів кнопки (звичайний, ховер, активний)
+
 @mixin submitButtonStyle($padding: 12px 24px, $margin: 10px 0 0 0) 
   display: flex
   align-items: center
@@ -49,14 +49,13 @@ $titleFont: 'Oxanium', sans-serif
   box-shadow: 0 4px 14px rgba(141, 14, 174, 0.3)
   transition: all 0.2s ease-in-out
 
-  // Стан при наведенні миші (Hover)
+
   &:hover 
     background-color: $firstColor
     transform: translateY(-1px)
     box-shadow: 0 6px 18px rgba(141, 14, 174, 0.4)
   
 
-  // Стан при натисканні (Active)
   &:active 
     transform: translateY(0)
     box-shadow: 0 2px 8px rgba(141, 14, 174, 0.3)
